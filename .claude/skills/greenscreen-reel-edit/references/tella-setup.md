@@ -20,15 +20,29 @@ before calling.
 - If a recording is still "transcribing" or stuck, ask the user to re-upload rather than
   waiting indefinitely.
 
-## 2. Clean the cuts
+## 2. Clean the cuts (from the audio)
 
-- `remove_fillers` and `remove_silences` handle ums and dead air.
-- `cut_clip_by_transcript` with word indices from `view: "text"` removes retakes, false starts
-  and anything after the final sentence. The creator wants it to end right when they stop
-  talking.
-- `update_transcript_words` fixes mistranscriptions (one earlier case: "7-year-old" should have
-  been "70-year-old"). Captions are burned in, so a wrong word is a visible error.
-- Re-read the sentences afterwards, because the times shift after cuts.
+The transcript's word times are often 60–160 ms off. Cutting on them (with
+`cut_clip_by_transcript`, or `update_clip` using word times) clips the tail of a kept word or
+leaves a fragment of a removed one. `remove_silences` (even in `fast` mode) leaves 300–600 ms
+gaps. The creator called the result "pauses and cuts me off". Do this instead:
+
+1. `get_transcript {includeCut: true}`: note the source start and end ms of every retake or
+   false start to drop. Each one is a whole phrase that you'll replace with its later, clean
+   take. If two takes run together with no gap ("…was they lost fat…"), it's often cleaner to
+   drop the whole sentence when the next one still reads naturally.
+2. Save the clip's current cuts. Run `update_clip {cuts: []}`, export without subtitles, then
+   download it (rehost through `vidiq_video_upload` if needed). This is the uncut audio. Raw
+   exports need a paid plan, which is why it's done this way.
+3. `scripts/recut.py uncut.mp4 --remove S-E --remove S-E … --out cuts.json`. Fix any loud seam
+   it reports (`--show T`), then `update_clip {cuts: <cuts.json>}`.
+4. Hide (`update_transcript_words` with `hidden: true`) any word whose start lies just before a
+   removed span (e.g. the first "tested" of "tested tested"). Tella counts it as kept, and it
+   would flash in the captions.
+5. Fix mistranscriptions with `update_transcript_words` (e.g. "7-year-old" should have been
+   "70-year-old"). Fix capitals where a cut now starts a sentence ("they" becomes "They").
+6. Re-read `view: "sentences"`: these are the times for `plan.tsv`. Check the export with
+   `ffmpeg -af silencedetect=noise=-38dB:d=0.3`. Only the final tail should show up.
 
 ## 3. Cut-out presenter on magenta
 

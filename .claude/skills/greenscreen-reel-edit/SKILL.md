@@ -43,7 +43,10 @@ Picture a 1080x1920 frame:
   B-roll, so the card reads and the motion stays.
 - **Audio:** the voice only. Studio Sound high (removes room echo), loudness normalized to
   -14 LUFS, **no music**.
-- **Cuts:** fillers and dead air removed, and the video ends the moment they stop talking.
+- **Cuts:** tight and clean. No pause longer than about a quarter-second, and no word clipped
+  at a cut. The video ends the moment they stop talking.
+- **No repeated visuals:** every scene gets its own clip or image. Reusing the same B-roll
+  across scenes reads as lazy.
 
 ### What the creator rejected (don't bring these back)
 
@@ -61,6 +64,10 @@ Each of these came up as explicit negative feedback:
 - **Background music.**
 - **A news story told without showing the person it's about.** Their face makes it real, and
   that's what the viral versions do.
+- **"The edit pauses and cuts me off."** Tella's `remove_silences` left 300–600 ms gaps, and
+  cuts placed on transcript word times clipped word tails ("…-ause fat loss", "If- If you
+  wanna"). Make the cuts from the audio with `recut.py` (step 1).
+- **The same B-roll reused across scenes.** Give each scene its own visual.
 
 ## Workflow
 
@@ -75,8 +82,16 @@ sentence times are the timeline you'll plan against.
 
 Prepare it as described in `references/tella-setup.md`:
 
-1. Clean up the cuts: fillers, silences, retakes, and the tail after the last word. Fix any
-   mistranscribed words, because they show in the burned-in captions.
+1. Clean up the cuts from the audio, not from word times. Note the transcript source times of
+   the retakes and false starts you'll drop (`get_transcript` with `includeCut: true`). Then:
+   save the clip's cuts, `update_clip {cuts: []}`, export once without subtitles, and download
+   it. Run `recut.py uncut.mp4 --remove S-E ...` and apply its `cuts.json` with `update_clip`.
+   It snaps each cut to the quietest point and trims every pause to a natural breath.
+   - Fix any seam it reports as loud by hand (`--show T` prints the levels around T).
+   - Hide (`hidden: true`) any word whose start falls just before a removed span, or it
+     flashes in the captions.
+   - Fix mistranscribed words, because they show in the burned-in captions.
+   - Don't use `remove_silences` or `cut_clip_by_transcript` for the final cut.
 2. Set the background to solid magenta `#FF00FF` and the base layout to a custom `cutout` at
    (110, 600), 860x1419.
 3. Remove every old overlay.
@@ -115,8 +130,17 @@ workarounds that have worked. In brief:
 - **Studies:** use Europe PMC (`europepmc.org/article/MED/<PMID>`). Check that the captured
   title matches the study you meant, and read the abstract to confirm the number you'll put on
   screen.
-- **B-roll:** reuse `broll/` first. `vidiq_generate_broll` costs credits, so check
-  `vidiq_balance` before using it.
+- **B-roll:** plan one unique visual per scene, and never put the same clip in two scenes.
+  1. Use `broll/` first.
+  2. Then `vidiq_generate_broll` (1 credit for 4 clips, so check `vidiq_balance`) or Tella's
+     free vintage library.
+  3. Then photoreal AI stills from Higgsfield (`gpt_image_2_6`, 4:3, quality medium, about 0.5
+     credits each; batch them in groups of 3 because larger batches hit rate limits). Make each
+     still a moving clip with `still_to_clip.sh`. Prompts should describe the exact action or
+     object in the sentence (a tape measure on a waist, a leg press, chicken on a food scale,
+     a man sleeping), with "no text, no logos".
+  4. AI stills are illustration only. Never use them for evidence (people in the news,
+     studies, scans).
 
 **Accuracy is part of the brand.** This is a doctor's account. Every number or claim on screen
 must match the source it's shown with, and image labels must be literal: if the scan is of a
@@ -141,6 +165,8 @@ details such as final texts. Mention in your summary that a family may see it.
 - `fullframe.py OUT --line "TEXT:color" ... --img A [--label ...] [--img B --label ...]` makes
   hook or comparison frames: one big image, or two side by side with coloured labels.
 - `ecg_strip.py OUT` makes the scrolling heart-monitor strip.
+- `still_to_clip.sh IMG OUT [SECONDS]` turns a still into a B-roll clip: the image sits above
+  the presenter with a slow push-in, over a blurred copy of itself.
 - `reframe_broll.sh SRC OUT Y0 H [TOP] [ZOOM]` lifts the action of a stock clip into the
   visible zone above the presenter's head. Most vertical clips put the subject (someone
   planking on the floor) mid-frame or lower, exactly where the cut-out covers it. Check a frame

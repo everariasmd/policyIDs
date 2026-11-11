@@ -91,6 +91,19 @@ Citations verified in past videos (reuse freely):
 - Clips from other creators' social posts can count as fair use when the video reacts to or
   comments on them (the creator's own guidance). Credit them on screen if used.
 
+## AI B-roll stills (Higgsfield)
+
+When there's no stock clip for a scene, generate a photoreal still instead of reusing a clip.
+Use `gpt_image_2_6`, aspect 4:3, quality medium, at about 0.5 credits each (check `balance`
+first, and mention the spend). Submit them through `generate_image_batch` in groups of about 3;
+12 at once hit a 429 rate limit. Wait with `jobs_wait`.
+
+The result URLs are on a CloudFront host the sandbox can't reach. Tella `import_from_url`
+(`video: false`) the URL, then `get_source_thumbnail` width 1920. The 4:3 image sits
+letterboxed in the 1920x1080 capture at (378,102)–(1542,978); crop it and run
+`still_to_clip.sh`. Use them for illustration only (an action, an object or a mood), never as
+evidence.
+
 ## Environment limits seen so far (re-check; they change)
 
 - The sandbox network blocked pexels, pubmed, many news sites and wikimedia, and allowed

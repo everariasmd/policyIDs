@@ -1,25 +1,25 @@
-# Video 3: planks / spot reduction (110.27 s export)
-start  end     kind  media         offset asset        asset2
-0      4.20    ban   plank1t.mp4    4      b_hook.png   -       # hook: "3.8M watched... can daily planks spot-reduce belly fat"
-4.20   8.45    ban   plank4t.mp4    3      b_hook.png   -
-8.45   11.59   ban   plank2t.mp4    0      b_no.png     -       # "I'm a doctor who lost 70 lb... no."
-11.59  17.25   ev    plank4t.mp4    6      c_vis_a.png  -       # "We tested this: 7 ab exercises, 5 d/wk, 6 wk" -> Vispute 2011
-17.25  23.25   ev2   plank1t.mp4    8      c_vis_b.png  b_bellyno.png # "no significant change in belly fat, waist, body fat"
-23.25  27.45   ev2   legst.mp4      0      c_ram_a.png  b_leg.png  # "another study... leg fat" -> Ramirez-Campillo 2013
-27.45  35.20   ev2   legst.mp4      3      c_ram_b.png  b_reps.png # "thousands of reps... didn't lose leg fat" -> 960-1,200 reps; not in trained leg
-35.20  40.47   ev2   walk.mp4      0      c_ram_c.png  b_whole.png # "lost fat all throughout the body / whole body"
-40.47  43.25   ban   plank2t.mp4    1      b_spot.png   -       # "can't pick the spot / don't spot reduce"
-43.25  45.70   ban   walk.mp4      3      b_genes.png  -       # "genetics decide the order"
-45.70  51.45   ban   walk.mp4      5      b_35.png     -       # "after 35 belly fat goes last... frustrating"
-51.45  53.10   ban   trainer.mp4   0      b_works.png  -       # "here's exactly what works"
-53.10  60.55   ban   food.mp4      0      b_1.png      -       # calorie deficit you can live with
-60.55  64.35   ban   oatmeal.mp4   0      b_1b.png     -       # 300-500 below maintenance
-64.35  71.60   ban   food.mp4      4      b_2.png      -       # protein 0.7-1 g/lb
-71.60  75.40   ban   food.mp4      2      b_2b.png     -       # 180 lb -> 180 g
-75.40  78.25   ban   oatmeal.mp4   3      b_2c.png     -       # full + protect muscle
-78.25  83.55   ban   curls.mp4     0      b_3.png      -       # lift 3x/wk 30 min
-83.55  87.80   ban   sleep1950.mp4 0      b_4.png      -       # sleep, the one everybody skips
-87.80  96.60   ev2   sleep1950.mp4 6      c_ned.png    b_sleep.png # Nedeltcheva 2010: 8.5 vs 5.5 h, 1.4 vs 0.6 kg fat
-96.60  100.20  ban   plank1t.mp4    5      b_keep.png   -       # "keep your planks, great for core & back"
-100.20 104.10  ban   plank4t.mp4    8      b_deficit.png -      # "don't expect them to melt anything... calorie deficit"
-104.10 110.40  ban   food.mp4      1      b_cta.png    -       # CTA: comment CALORIE DEFICIT
+# Video 3 v2: re-cut audio (101.2 s), one unique visual per scene
+start  end     kind  media            offset asset          asset2
+0      4.00    ban   plank1t.mp4      4      b_hook.png     -       # hook: "3.8M watched... can daily planks..."
+4.00   8.05    ban   ai_plankman.mp4  0      b_hook.png     -       # second plank angle (man)
+8.05   11.00   ban   plank2t.mp4      0      b_no.png       -       # "I'm a doctor who lost 70 lb... no."
+11.00  16.35   ev    ai_crunch.mp4    0      c_vis_a.png    -       # Vispute 2011 protocol, over crunches
+16.35  22.20   ev2   ai_tape.mp4      0      c_vis_b.png    b_bellyno.png # no change in belly fat/waist, over tape measure
+22.20  26.20   ev2   ai_legpress.mp4  0      c_ram_a.png    b_leg.png     # study 2 leg fat, over leg press
+26.20  33.40   ev2   legst.mp4        0      c_ram_b.png    b_reps.png    # 960-1,200 reps, trained leg unchanged
+33.40  36.04   ev2   ai_mirror.mp4    0      c_ram_c.png    b_whole.png   # whole-body fat loss, over mirror
+36.04  38.60   ban   ai_pinch.mp4     0      b_spot.png     -       # can't spot-reduce, belly pinch
+38.60  41.05   ban   ai_dna.mp4       0      b_genes.png    -       # genetics decide the order
+41.05  46.35   ban   walk.mp4         2      b_35.png       -       # after 35 belly fat goes last / frustrating
+46.35  47.95   ban   trainer.mp4      0      b_works.png    -       # here's what works
+47.95  55.15   ban   food.mp4         0      b_1.png        -       # #1 calorie deficit you can live with
+55.15  58.78   ban   ai_app.mp4       0      b_1b.png       -       # 300-500 below maintenance, tracking app
+58.78  64.55   ban   ai_protein.mp4   0      b_2.png        -       # #2 protein 0.7-1 g/lb
+64.55  68.17   ban   ai_scale.mp4     0      b_2b.png       -       # 180 lb -> 180 g, food scale
+68.17  70.93   ban   ai_shake.mp4     0      b_2c.png       -       # full + protect muscle
+70.93  76.00   ban   curls.mp4        0      b_3.png        -       # #3 lift 3x/wk 30 min
+76.00  80.03   ban   ai_sleepman.mp4  0      b_4.png        -       # #4 sleep
+80.03  88.40   ev2   sleep1950.mp4    6      c_ned.png      b_sleep.png   # Nedeltcheva 2010
+88.40  91.85   ban   plank4t.mp4      5      b_keep.png     -       # keep your planks
+91.85  95.53   ban   oatmeal.mp4      0      b_deficit.png  -       # fat loss = calorie deficit
+95.53  101.30  ban   gymmembers.mp4   0      b_cta.png      -       # CTA
