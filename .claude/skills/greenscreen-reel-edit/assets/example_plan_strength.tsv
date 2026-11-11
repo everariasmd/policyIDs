@@ -1,0 +1,25 @@
+# Finished example: "Same age, different future" (strength training, 88.5 s).
+# Times = sentence times from Tella get_transcript (view: sentences) after cleanup.
+# Assets were made with evidence.py / banner.py / fullframe.py; b-roll lives in broll/.
+#
+# start end   kind  media          offset asset            asset2          # what is said -> why this visual
+0     2.42  full  gym2.mp4       0   f1_h74.png        -               # "thigh of a 70yo who doesn't lift" -> the actual MRI, labelled literally (AGE 74 · DOESN'T TRAIN, red)
+2.42  4.33  full  gym2.mp4       2   f1_h70.png        -               # "...and one who does" -> trained-thigh MRI (AGE 70 · TRAINS 4-5x/WEEK, green)
+4.33  6.45  full  gym2.mp4       4   f1_same.png       -               # "Same age, different future" -> both scans side by side + banner
+6.45  10.80 full  xray.mp4       0   f1_show.png       -               # "the image I show every patient" -> same scans, new banner
+10.80 13.30 ev2   xray.mp4       3   v1_wrob.png       b1_study.png    # "from a 2011 study" -> paper title + journal/year highlighted
+13.30 19.95 ev    gymmembers.mp4 0   v1_wrob2.png      -               # "athletes 40-81, muscle didn't shrink" -> the exact abstract rows, split big
+19.95 23.85 ev2   grandpa.mp4    0   v1_disuse.png     b1_disuse.png   # "what we blame on aging is disuse" -> "...chronic disuse rather than muscle aging" + IT'S NOT AGING. IT'S DISUSE.
+23.85 27.50 ban   walk.mp4       0   b1_3040.png       -               # "why care in your 30s/40s" -> family walking (busy parents) + banner
+27.50 34.75 ban   food.mp4       0   b1_sponge.png     -               # "muscle is your blood sugar sponge" -> food being eaten + banner
+34.75 40.82 ban   oatmeal.mp4    0   b1_carbs.png      -               # "harder time handling carbs" -> carbs on screen
+40.82 44.08 ban   gym1.mp4       0   b1_live.png       -               # "strength tracks with how long you live"
+44.08 48.60 ev2   gym1.mp4       3   v1_pure.png       b1_pure1.png    # PURE study -> Lancet title card + ~140,000 PEOPLE / 17 COUNTRIES
+48.60 53.20 ev2   gym1.mp4       6   v1_pure.png       b1_pure2.png    # "5 kg drop -> 16% higher risk of death" -> same card, the stat as banner
+53.20 57.18 ban   trainer.mp4    0   b1_assoc.png      -               # "association, not causation"
+57.18 59.90 ban   bike.mp4       0   b1_gym.png        -               # "don't have to live in the gym"
+59.90 66.22 ev2   curls.mp4      0   v1_momma.png      b1_3060.png     # 2022 meta-analysis -> BJSM title + 30-60 MIN/WEEK
+66.22 68.95 ban   grandpa.mp4    3   b1_late.png       -               # "before you think it's too late"
+68.95 76.31 ev2   gym2.mp4       1   v1_fiat.png       b1_174.png      # "people in their 90s, +174% in 8 weeks" -> JAMA 1990 with 'aged 90' + '174%' highlighted
+76.31 82.02 ban   trainer.mp4    2   b1_rx.png         -               # "2-3 short sessions a week... your prescription"
+82.02 88.60 ban   trainer.mp4    4   b_cta.png         -               # CTA -> COMMENT "RESISTANCE TRAINING"
