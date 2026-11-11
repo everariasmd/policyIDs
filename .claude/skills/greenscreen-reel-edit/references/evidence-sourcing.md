@@ -41,6 +41,9 @@ Citations verified in past videos (reuse freely):
 | Nonagenarians +174% strength in 8 weeks | Fiatarone et al., *JAMA* 1990 (PMID 2342214) |
 | Spin-class (exertional) rhabdomyolysis case series | Cureus 2021, captured via Europe PMC |
 | Marathon cardiac arrest ≈ 1 in 185,000 runners | Kim et al., *NEJM* 2012 |
+| 7 ab exercises, 5 d/wk, 6 wk: no change in abdominal fat or waist (endurance improved, not "strength") | Vispute et al., *J Strength Cond Res* 2011 (PMID 21804427) |
+| One-leg press, 960–1,200 reps/session, 12 wk: fat lost in arms and trunk, not in the trained leg | Ramírez-Campillo et al., *J Strength Cond Res* 2013 (PMID 23222084) |
+| Same calorie deficit, 8.5 vs 5.5 h in bed: 1.4 vs 0.6 kg fat lost | Nedeltcheva et al., *Ann Intern Med* 2010 (PMID 20921542); the results sit below the fold, so put the numbers in a banner |
 
 ## People in news stories
 
@@ -78,7 +81,13 @@ Citations verified in past videos (reuse freely):
   generic ones ("fitness").
 - The sandbox can't reach `pexels.com` directly. Rehost with `vidiq_video_upload {url}` (free;
   any public MP4 up to 299 MB), then curl the `storage.googleapis.com` URL.
-- Tella `list_library {scope: "vintage", query}` has public-domain archive footage.
+- Tella `list_library {scope: "vintage", query}` has free public-domain archive footage (e.g.
+  "person sleeping in bed" returns a 1950 black-and-white sleep film). The sandbox can't reach
+  its `prod-raw.tella.tv` URLs, so pass the item's `url` to `vidiq_video_upload` and curl the
+  rehosted copy. This is a good fallback when vidIQ credits are at zero.
+- A vidIQ B-roll search returns up to 4 clips for 1 credit, and rehosting all 4 is free. When
+  credits are scarce, spend them on the hook's topic (e.g. "plank") and fill the rest from the
+  library, real evidence and banners.
 - Clips from other creators' social posts can count as fair use when the video reacts to or
   comments on them (the creator's own guidance). Credit them on screen if used.
 

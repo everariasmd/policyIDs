@@ -141,6 +141,10 @@ details such as final texts. Mention in your summary that a family may see it.
 - `fullframe.py OUT --line "TEXT:color" ... --img A [--label ...] [--img B --label ...]` makes
   hook or comparison frames: one big image, or two side by side with coloured labels.
 - `ecg_strip.py OUT` makes the scrolling heart-monitor strip.
+- `reframe_broll.sh SRC OUT Y0 H [TOP] [ZOOM]` lifts the action of a stock clip into the
+  visible zone above the presenter's head. Most vertical clips put the subject (someone
+  planking on the floor) mid-frame or lower, exactly where the cut-out covers it. Check a frame
+  of every B-roll clip and reframe any whose action sits below y≈900.
 
 Look at every card at reduced size (read the PNG) before building. Highlights that start
 mid-word and text too small to read were the most common fixes.
@@ -180,5 +184,6 @@ mid-word and text too small to read were the most common fixes.
   and Tella gotchas.
 - `references/evidence-sourcing.md`: where to get news photos, papers, medical images and
   B-roll; capture workarounds; and environment limits such as blocked hosts and credits.
-- `assets/example_plan_strength.tsv`: the full plan of a finished video, with notes on why each
-  visual was chosen.
+- `assets/example_plan_strength.tsv` and `assets/example_plan_planks.tsv`: full plans of two
+  finished videos, with notes on why each visual was chosen. The planks plan shows the
+  numbered-list pattern ("#1 CALORIE DEFICIT" … "#4 SLEEP") for advice segments.

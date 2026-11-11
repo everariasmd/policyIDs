@@ -32,6 +32,11 @@ before calling.
 
 ## 3. Cut-out presenter on magenta
 
+A freshly uploaded recording often arrives with `autoRatio: true` and an odd canvas, such as
+97:160 (1164x1920). Pin it first with `update_video {videoId, dimensions: {width: 1080,
+height: 1920}}`, then apply the layout. Changing dimensions resets custom layouts, so do it
+before the layout, not after.
+
 ```
 update_clip   {videoId, clipId, background: {type: "solid", color: "#FF00FF"}}
 update_layout {videoId, clipId, layoutId: "base",
