@@ -28,7 +28,10 @@ being said, not at a talking head in a room.
 Picture a 1080x1920 frame:
 
 - **Bottom ~50%: the presenter**, cut out of their room (no background), feet off-frame. The
-  caption sits over their chest: one line, word-by-word yellow highlight, opaque black pill.
+  caption sits in the gap between the headline/evidence and the top of their head (y≈870),
+  never over the face or mouth: one line, word-by-word yellow highlight, opaque black pill.
+  The bottom ~20% of the frame is under Instagram's username/description overlay, so don't
+  push captions down to the chest either.
 - **Top ~45%: the evidence zone**, which changes with every point, every ~3–10 s:
   - **Real evidence first.** If the script names a person, show *that person* (news photo,
     headline). If it cites a study, show *that paper*: title, journal and year, and the one line
@@ -52,7 +55,8 @@ Picture a 1080x1920 frame:
 
 Each of these came up as explicit negative feedback:
 
-- **Text or graphics over the face.** Keep everything above roughly y=880.
+- **Text or graphics over the face.** Keep everything above roughly y=880. That includes the
+  captions: at y≈1540 they sat on the mouth ("blocking most of my face").
 - **A plain colour or a moving abstract background with nothing on it.** They found it
   distracting and empty.
 - **A wall of text from a screenshot.** Show the article or study name, then only the finding,
