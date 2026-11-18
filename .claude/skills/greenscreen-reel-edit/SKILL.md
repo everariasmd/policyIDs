@@ -194,6 +194,12 @@ mid-word and text too small to read were the most common fixes.
 4. Render: `composite.sh bg.mp4 fg.mp4 Final.mp4`. A 2-minute video takes 10–15 minutes, so
    run it in the background with a long timeout. Add `-t 8` to the end of the command for a
    quick test.
+   When cutting a raw take locally (no Tella), don't build one ffmpeg graph with a `trim` per
+   kept segment and a `concat` at the end: on a 2-minute take with ~30 cuts it buffered the
+   whole video in RAM (14 GB) and was OOM-killed. Encode each segment on its own (input seek to
+   `(frame - 0.5)/30`, `-frames:v N`) and join them with the concat demuxer (`-c copy`);
+   `scripts/segcut.py` does this. Render the audio in a separate audio-only pass. Give
+   1–2-frame slivers the previous segment's zoom, or they flash a framing change.
 5. QA the render: `preview.py --video Final.mp4 ...`, and check loudness with
    `ffmpeg -i Final.mp4 -af volumedetect -f null -`. A max around -1 dB is right. A garbled
    caption on a single frame is just Tella's caption transition; check a frame 0.3 s later.
